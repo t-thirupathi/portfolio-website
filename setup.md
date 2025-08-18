@@ -23,3 +23,18 @@ cd backend
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+
+
+backend/
+├── app/
+│   ├── __init__.py
+│   ├── main.py         # Entry point
+│   ├── routers/
+│   │   └── chat.py     # Chat endpoint
+│   └── services/
+│       └── gemini.py   # LLM calls (stub for now)
+├── requirements.txt
+└── Dockerfile
+
+uvicorn app.main:app --reload --port 8000
+curl -X POST http://localhost:8000/chat/ -H "Content-Type: application/json" -d '{"question":"Hello"}'
