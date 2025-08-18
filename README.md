@@ -1,14 +1,6 @@
-mkdir backend
-cd backend
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-
-
-npm create vite@latest frontend  --template react
+# Frontend setup
+npx create-next-app@latest frontend --ts
+# EsLint yes, Tailwind no, src/ directory yes, app router yes, turbopack no, custom import alias no
 cd frontend
-npm install
-npm run dev
-
-pip install google-cloud-aiplatform
+npm install @mui/material @mui/icons-material @emotion/react @emotion/styled axios
 
