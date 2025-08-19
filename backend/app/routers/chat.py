@@ -1,6 +1,10 @@
+import os, sys
 from fastapi import APIRouter
 from pydantic import BaseModel
-from ..services.gemini import ask_gemini
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+from app.services.gemini import ask_gemini
+from app.services.openai_service import ask_openai
+
 router = APIRouter(prefix="/chat", tags=["chat"])
 
 class ChatRequest(BaseModel):
@@ -11,6 +15,6 @@ class ChatResponse(BaseModel):
 
 @router.post("/", response_model=ChatResponse)
 async def chat_endpoint(request: ChatRequest):
-    # Temporary stub (replace with Gemini call)
-    answer = ask_gemini(request.question)
+    # answer = ask_gemini(request.question)
+    answer = ask_openai(request.question)
     return ChatResponse(answer=answer)
