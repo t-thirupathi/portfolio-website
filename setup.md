@@ -38,3 +38,6 @@ backend/
 
 uvicorn app.main:app --reload --port 8000
 curl -X POST http://localhost:8000/chat/ -H "Content-Type: application/json" -d '{"question":"Hello"}'
+
+
+gcloud auth application-default login
