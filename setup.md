@@ -1,3 +1,7 @@
+
+nvm alias default lts/*
+nvm use --lts
+node -v 
 # Frontend setup
 npx create-next-app@latest frontend --ts
 # EsLint yes, Tailwind no, src/ directory yes, app router yes, turbopack no, custom import alias no
@@ -41,3 +45,17 @@ curl -X POST http://localhost:8000/chat/ -H "Content-Type: application/json" -d 
 
 
 gcloud auth application-default login
+gcloud services enable run.googleapis.com
+gcloud services enable artifactregistry.googleapis.com
+gcloud services enable cloudbuild.googleapis.com
+
+# Deploy frontend (Firebase)
+npm install -g firebase-tools
+firebase login
+firebase projects:create firebase-website-firebase
+firebase projects:list
+│ portfolio-website-firebase │ portfolio-website-firebase    │ 836938387848   │ [Not specified]     firebase init hosting
+Inside frontend/
+npm run build
+firebase deploy
+
