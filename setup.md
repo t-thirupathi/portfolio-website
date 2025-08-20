@@ -58,4 +58,9 @@ firebase projects:list
 Inside frontend/
 npm run build
 firebase deploy
+^ returns Hosting URL: https://portfolio-website-firebase.web.app
 
+
+npm run build
+firebase use --add
+firebase deploy --only hosting
