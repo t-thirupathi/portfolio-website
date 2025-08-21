@@ -2,12 +2,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers import chat
 
-app = FastAPI(title="Portfolio Backend API")
+app = FastAPI(title="Thirupathi Thangavel Backend API")
 
 # Allow frontend to talk to backend
 origins = [
     "http://localhost:3000",   # Next.js dev
-    "https://your-deployed-site.web.app",  # Firebase Hosting (update later)
+    "https://portfolio-website-firebase.web.app",  # Firebase Hosting
 ]
 
 app.add_middleware(

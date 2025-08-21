@@ -4,8 +4,8 @@ import ThemeRegistry from "@/components/ThemeRegistry";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "Portfolio website built with Next.js + MUI",
+  title: "Thirupathi Thangavel",
+  description: "Thirupathi Thangavel",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

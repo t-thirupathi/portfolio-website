@@ -43,11 +43,20 @@ backend/
 uvicorn app.main:app --reload --port 8000
 curl -X POST http://localhost:8000/chat/ -H "Content-Type: application/json" -d '{"question":"Hello"}'
 
-
+# Deploy backend to GCP
+gcloud auth login
+gcloud config set project portfolio-website-468920 # use correct project ID
 gcloud auth application-default login
 gcloud services enable run.googleapis.com
 gcloud services enable artifactregistry.googleapis.com
 gcloud services enable cloudbuild.googleapis.com
+
+gcloud builds submit --tag gcr.io/portfolio-website-468920/fastapi-backend
+gcloud run deploy fastapi-backend \
+  --image gcr.io/portfolio-website-468920/fastapi-backend \
+  --platform managed \
+  --region asia-south1 \
+  --allow-unauthenticated
 
 # Deploy frontend (Firebase)
 npm install -g firebase-tools

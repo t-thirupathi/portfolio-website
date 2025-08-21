@@ -42,7 +42,7 @@ export default function NavBar() {
             letterSpacing: "0.5px",
           }}
         >
-          My Portfolio
+          Thirupathi Thangavel
         </Typography>
 
         {/* Center - Navigation */}
