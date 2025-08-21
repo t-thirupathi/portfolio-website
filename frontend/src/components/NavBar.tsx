@@ -17,7 +17,9 @@ import { useContext } from "react";
 import { ThemeContext } from "./ThemeRegistry";
 
 export default function NavBar() {
-  const { mode, toggleMode } = useContext(ThemeContext);
+  const themeContext = useContext(ThemeContext);
+  const mode = themeContext?.mode ?? "light";
+  const toggleMode = themeContext?.toggleMode ?? (() => {});
 
   return (
     <AppBar

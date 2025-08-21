@@ -55,7 +55,7 @@ gcloud builds submit --tag gcr.io/portfolio-website-468920/fastapi-backend
 gcloud run deploy fastapi-backend \
   --image gcr.io/portfolio-website-468920/fastapi-backend \
   --platform managed \
-  --region asia-south1 \
+  --region us-central1 \
   --allow-unauthenticated
 
 # Deploy frontend (Firebase)
