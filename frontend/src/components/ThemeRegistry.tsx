@@ -48,7 +48,6 @@ export default function ThemeRegistry({ children }: { children: React.ReactNode 
             default: mode === "dark" ? "#0F0F23" : "#FAFAFC", // Deep navy to light gray
             paper: mode === "dark" ? "#1A1A2E" : "#FFFFFF",
           },
-          surface: mode === "dark" ? "#16213E" : "#F8F9FB",
           text: {
             primary: mode === "dark" ? "#E5E7EB" : "#111827",
             secondary: mode === "dark" ? "#9CA3AF" : "#6B7280",
