@@ -1,5 +1,5 @@
 # Use official lightweight Python image
-FROM python:3.13-slim
+FROM python:3.12-slim
 
 # Install security updates and remove package lists
 RUN apt-get update && apt-get upgrade -y && apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -14,8 +14,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy source code
 COPY . .
 
-# Expose port (Cloud Run listens on $PORT)
-EXPOSE 8080
+# Cloud Run always sets PORT
+ENV PORT=8080
 
 # Start Flask using gunicorn (Cloud Run uses $PORT env var)
-CMD exec uvicorn main:app --host 0.0.0.0 --port $PORT
+CMD exec uvicorn app.main:app --host 0.0.0.0 --port $PORT
