@@ -1,6 +1,6 @@
 # Portfolio Website with AI Interview Bot
 
-This is my personal portfolio website  to showcase my projects, resume, and includes an **AI-powered interview bot** that answers questions about me. 
+This is my personal portfolio website to showcase my projects, resume, and includes an **AI-powered interview bot** that answers questions about me. 
 Live on [thiru.live](https://thiru.live/)
 
 ## Tech stack

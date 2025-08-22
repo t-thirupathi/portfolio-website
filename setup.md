@@ -73,3 +73,10 @@ firebase deploy
 npm run build
 firebase use --add
 firebase deploy --only hosting
+
+
+
+##### New
+<!-- npx shadcn@latest init
+npx shadcn@latest add button -->
+npm install @mui/material @emotion/react @emotion/styled @mui/icons-material
