@@ -8,6 +8,10 @@ app = FastAPI(title="Thirupathi Thangavel Backend API")
 origins = [
     "http://localhost:3000",   # Next.js dev
     "https://portfolio-website-firebase.web.app",  # Firebase Hosting
+    "https://thiru.live",   
+    "https://www.thiru.live",
+    "https://thiru.online",   
+    "https://www.thiru.online",
 ]
 
 app.add_middleware(
