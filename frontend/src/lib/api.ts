@@ -1,7 +1,11 @@
 import axios from "axios";
 
+// const api = axios.create({
+//   baseURL: "/api", // always relative, works locally + prod
+// });
+
 const api = axios.create({
-  baseURL: "/api", // always relative, works locally + prod
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
 });
 
 type ChatResponse = {
