@@ -12,10 +12,6 @@ export default function ResumePage() {
       minHeight="100vh"
       px={2}
     >
-      <Typography variant="h3" component="h1" gutterBottom>
-        My Resume
-      </Typography>
-
       {/* Download Button */}
       <Button
         variant="contained"
