@@ -1,7 +1,9 @@
 # Portfolio Website with AI Interview Bot
 
 This is my personal portfolio website  to showcase my projects, resume, and includes an **AI-powered interview bot** that answers questions about me. 
-# Tech stack
+Live on [thiru.live](https://thiru.live/)
+
+## Tech stack
 - Python
 - FastAPI
 - Gemini
@@ -11,14 +13,11 @@ This is my personal portfolio website  to showcase my projects, resume, and incl
 - GCP
 - Firebase
 
-- **Frontend**: Next.js + Firebase Hosting  
-- **Backend**: FastAPI + Google Cloud Run  
-- **CI/CD**: Automatic builds and deployments  
-- **Features**:
-  - Project gallery
-  - Resume download
-  - AI interview bot (LLM-powered)
-  - Custom domain support (https://thiru.live)
+# Features
+- Project gallery
+- Resume download
+- AI interview bot (LLM-powered)
+- Custom domain support (https://thiru.live)
 
 # Deploy Backend (GCP)
 cd backend/
