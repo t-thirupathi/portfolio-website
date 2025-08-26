@@ -15,6 +15,6 @@ class ChatResponse(BaseModel):
 
 @router.post("/", response_model=ChatResponse)
 async def chat_endpoint(request: ChatRequest):
-    answer = ask_gemini(request.question)
-    # answer = ask_openai(request.question)
+    # answer = ask_gemini(request.question)
+    answer = ask_openai(request.question)
     return ChatResponse(answer=answer)

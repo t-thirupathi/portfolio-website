@@ -1,0 +1,148 @@
+"use client";
+
+import Link from "next/link";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Button,
+  Box,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import { useContext, useState } from "react";
+import { ThemeContext } from "./ThemeRegistry";
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Interview Me", href: "/interview" },
+  { label: "Resume", href: "/resume" },
+];
+
+export default function NavBar() {
+  const themeContext = useContext(ThemeContext);
+  const mode = themeContext?.mode ?? "light";
+  const toggleMode = themeContext?.toggleMode ?? (() => {});
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const handleDrawerToggle = () => setDrawerOpen((open) => !open);
+
+  return (
+    <AppBar
+      position="sticky"
+      color="default"
+      elevation={2}
+      sx={{
+        backdropFilter: "blur(8px)",
+        backgroundColor: "rgba(255, 255, 255, 0.8)",
+      }}
+    >
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        {/* Left side - Logo / Name */}
+        <Typography
+          variant="h6"
+          component={Link}
+          href="/"
+          sx={{
+            textDecoration: "none",
+            color: "inherit",
+            fontWeight: "bold",
+            letterSpacing: "0.5px",
+          }}
+        >
+          Thirupathi Thangavel
+        </Typography>
+
+        {/* Center - Navigation */}
+        {!isMobile ? (
+          <Box sx={{ display: "flex", gap: 2 }}>
+            {navLinks.map((link) => (
+              <Button
+                key={link.href}
+                component={Link}
+                href={link.href}
+                sx={{ color: "text.primary", fontWeight: 500 }}
+              >
+                {link.label}
+              </Button>
+            ))}
+          </Box>
+        ) : (
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            onClick={handleDrawerToggle}
+            sx={{ ml: 1 }}
+          >
+            <MenuIcon />
+          </IconButton>
+        )}
+
+        {/* Right side - Social Icons */}
+        <Box sx={{ display: "flex", gap: 1 }}>
+          {/* Dark/Light mode toggle */}
+          <IconButton onClick={toggleMode} sx={{ color: "text.primary" }}>
+            {mode === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
+          </IconButton>
+
+          {/* Social links */}
+          <IconButton
+            href="https://github.com/t-thirupathi"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ color: "text.primary" }}
+          >
+            <GitHubIcon />
+          </IconButton>
+          <IconButton
+            href="https://linkedin.com/in/thirupathi-thangavel/"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ color: "text.primary" }}
+          >
+            <LinkedInIcon />
+          </IconButton>
+        </Box>
+      </Toolbar>
+
+      {/* Mobile Drawer */}
+      <Drawer
+        anchor="left"
+        open={drawerOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{ keepMounted: true }}
+      >
+        <Box
+          sx={{ width: 220 }}
+          role="presentation"
+          onClick={handleDrawerToggle}
+          onKeyDown={handleDrawerToggle}
+        >
+          <List>
+            {navLinks.map((link) => (
+              <ListItem key={link.href} disablePadding>
+                <ListItemButton component={Link} href={link.href}>
+                  <ListItemText primary={link.label} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      </Drawer>
+    </AppBar>
+  );
+}

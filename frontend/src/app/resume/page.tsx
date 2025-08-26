@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Button, Typography, Paper } from "@mui/material";
+import { Box, Button, Paper } from "@mui/material";
 
 export default function ResumePage() {
   return (

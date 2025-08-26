@@ -1,5 +1,5 @@
 export default function HomePage() {
   return <>
-    <h3>🚧<i> Site under construction </i>🚧</h3>
+    <h3>🚧<i> Site currently under construction </i>🚧</h3>
   </>;
 }
